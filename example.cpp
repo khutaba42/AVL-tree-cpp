@@ -23,23 +23,39 @@ int main(int argc, char* argv[]) {
         tree_1.insert(letter);
     }
 
+    std::cout << "Tree of the whole alphabet" << std::endl;
     tree_1.display();
 
-    std::cout << tree_1.size() << std::endl;
-    
-    tree_1.remove('s');
+    std::cout << "size: " << tree_1.size() << std::endl;
 
+    tree_1.remove('a');
+    tree_1.remove('v');
+    tree_1.remove('l');
+    tree_1.remove('t');
+    tree_1.remove('r');
+    tree_1.remove('e');
+
+    try
+    {
+        tree_1.remove('e');
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    std::cout << "Tree of the whole alphabet without a v l t r e" << std::endl;
     tree_1.display();
     
-    std::cout << tree_1.size() << std::endl;
+    std::cout << "size: " << tree_1.size() << std::endl;
 
-    std::cout << tree_1.isEmpty() << std::endl;
+    (tree_1.isEmpty()) ? (std::cout <<  "empty") : (std::cout <<  "not empty") << std::endl;
 
     tree_1.clear();
 
-    std::cout << tree_1.size() << std::endl;
+    std::cout << "size: " << tree_1.size() << std::endl;
     
-    std::cout << tree_1.isEmpty() << std::endl;
+    (tree_1.isEmpty()) ? (std::cout <<  "empty") : (std::cout <<  "not empty") << std::endl;
 
     return 0;
 }
