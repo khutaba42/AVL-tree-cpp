@@ -3,6 +3,7 @@
 
 /*
 g++ -std=c++11 example.cpp -o example.exe -lc++
+./example.exe > example.exe.output             
 */
 
 avl::Comparison comp(const char& a, const char& b) {
@@ -18,7 +19,7 @@ avl::Comparison comp(const char& a, const char& b) {
 int main(int argc, char* argv[]) {
     avl::Tree<char, comp> tree_1;
 
-    for(int letter = (int) 'a'; letter <= (int) 'z' ; ++letter)
+    for(char letter = 'a'; letter <= 'z' ; ++letter)
     {
         tree_1.insert(letter);
     }
