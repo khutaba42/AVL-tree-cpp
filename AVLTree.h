@@ -425,24 +425,30 @@ namespace avl
             return true;
         }
 
-        void display_aux(Node *cur, int depth = 0, bool printRight = true)
-        {
+        void display_aux(Node *cur, int depth = 0, short nodeType = 0)
+        {   // nodeType == 0 is root
+            // nodeType == 1 is left
+            // nodeType == 2 is right
             if (cur->__left) {
-                display_aux(cur->__left, depth + 1, false);
+                display_aux(cur->__left, depth + 1, 1);
             }
 
-            for (int i = 0; i < depth; i++)
+            for (int i = 0; i < depth; i++) // padding
             {
                 printf("     ");
             }
 
-            if (printRight) // right
+            if (nodeType == 1) // left
             {
-                printf("  └---"); // or use "└───" for a more smooth look
+                printf("┌---"); // or use "┌───" for a more smooth look
             }
-            else // left
+            else if (nodeType == 2) // right
             {
-                printf("  ┌---"); // or use "┌───" for a more smooth look
+                printf("└---"); // or use "└───" for a more smooth look
+            }
+            else // root
+            {
+                printf("*---");
             }
                 
 
@@ -451,7 +457,7 @@ namespace avl
 
             if (cur->__right)
             {
-                display_aux(cur->__right, depth + 1, true);
+                display_aux(cur->__right, depth + 1, 2);
             }
         }
     };
