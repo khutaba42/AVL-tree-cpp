@@ -1,3 +1,9 @@
+.gitignore
+.vscode
+
+# MacOs
+.DS_Store
+
 # Prerequisites
 *.d
 
